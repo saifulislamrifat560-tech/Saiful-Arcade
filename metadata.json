@@ -1,0 +1,5 @@
+{
+  "name": "Saiful Arcade",
+  "description": "A classic Nokia-style Snake game built with React and Tailwind CSS, featuring touch controls, progressive difficulty, and retro sound effects.",
+  "requestFramePermissions": []
+}
