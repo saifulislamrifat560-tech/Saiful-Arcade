@@ -238,7 +238,7 @@ const SnakeGame: React.FC<SnakeGameProps> = ({ onBack }) => {
       <div className="flex-1 w-full flex items-center justify-center p-4 min-h-0">
          {/* CONSTRAINT ADDED: max-w-[400px] makes it look like mobile even on desktop */}
          <div className="relative aspect-square h-full max-h-[400px] w-full max-w-[400px]">
-            <div className="w-full h-full rounded-2xl bg-[#050505] border border-white/5 shadow-2xl overflow-hidden relative">
+            <div className="w-full h-full rounded-2xl bg-[#050505] border-2 border-white/20 shadow-2xl overflow-hidden relative">
                 
                 {/* Board Background */}
                 <div className="absolute inset-0 opacity-20 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none" />
