@@ -3,18 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Neon Snake</title>
+    <title>Saiful Arcade</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@100;300;400;600;800&display=swap');
       
+      :root {
+        touch-action: pan-x pan-y;
+      }
+
       body {
         font-family: 'Exo 2', sans-serif;
         background-color: #000;
         touch-action: none;
         overflow: hidden;
+        /* Copy Protection CSS */
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
       }
       
+      /* Disable selection on everything */
+      * {
+        user-select: none;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+      }
+
       /* Smooth glow animations */
       @keyframes soft-pulse {
         0%, 100% { opacity: 1; transform: scale(1); }
@@ -29,14 +45,37 @@
   <script type="importmap">
 {
   "imports": {
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.4",
     "react/": "https://esm.sh/react@^19.2.4/",
     "react": "https://esm.sh/react@^19.2.4",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "vite": "https://esm.sh/vite@^7.3.1"
   }
 }
 </script>
 </head>
-  <body>
+  <!-- Disable Right Click Context Menu -->
+  <body oncontextmenu="return false;">
     <div id="root"></div>
+    
+    <!-- Vite Entry Point -->
+    <script type="module" src="/index.tsx"></script>
+
+    <script>
+      // Additional Copy Protection Logic
+      document.addEventListener('contextmenu', event => event.preventDefault());
+      
+      document.addEventListener('keydown', event => {
+        // Prevent Ctrl+C, Ctrl+U, Ctrl+S, F12 (Inspect) could be added but aggressive
+        if (event.ctrlKey && (
+            event.key === 'u' || event.key === 'U' || 
+            event.key === 's' || event.key === 'S' || 
+            event.key === 'c' || event.key === 'C' ||
+            event.key === 'a' || event.key === 'A'
+        )) {
+          event.preventDefault();
+        }
+      });
+    </script>
   </body>
 </html>
