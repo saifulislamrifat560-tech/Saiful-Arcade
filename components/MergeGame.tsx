@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { audioController } from '../utils/audio';
 import { Direction } from '../types';
 import { Dpad } from './Dpad';
@@ -184,21 +184,21 @@ const MergeGame: React.FC<MergeGameProps> = ({ onBack }) => {
   // --- Rendering ---
 
   const getTileStyle = (val: number) => {
-    const base = "w-full h-full rounded flex items-center justify-center font-bold text-lg sm:text-2xl transition-all duration-200 border shadow-inner";
+    const base = "w-full h-full rounded flex items-center justify-center font-bold text-lg sm:text-3xl transition-all duration-200 border shadow-inner select-none";
     
     switch(val) {
         case 0: return "invisible";
-        case 2: return `${base} bg-cyan-900/20 text-cyan-200 border-cyan-500/20`;
-        case 4: return `${base} bg-cyan-800/30 text-cyan-100 border-cyan-500/30 shadow-[0_0_10px_rgba(34,211,238,0.1)]`;
-        case 8: return `${base} bg-blue-600/40 text-white border-blue-400/40 shadow-[0_0_10px_rgba(59,130,246,0.2)]`;
-        case 16: return `${base} bg-indigo-600/50 text-white border-indigo-400/40 shadow-[0_0_15px_rgba(99,102,241,0.3)]`;
-        case 32: return `${base} bg-violet-600/60 text-white border-violet-400/40 shadow-[0_0_15px_rgba(139,92,246,0.3)]`;
-        case 64: return `${base} bg-fuchsia-600/60 text-white border-fuchsia-400/40 shadow-[0_0_20px_rgba(217,70,239,0.4)]`;
-        case 128: return `${base} bg-rose-600/60 text-white border-rose-400/50 shadow-[0_0_20px_rgba(244,63,94,0.4)]`;
-        case 256: return `${base} bg-red-600/70 text-white border-red-400/50 shadow-[0_0_25px_rgba(239,68,68,0.5)]`;
-        case 512: return `${base} bg-orange-500/80 text-white border-orange-300/50 shadow-[0_0_30px_rgba(249,115,22,0.6)]`;
-        case 1024: return `${base} bg-amber-400/90 text-black border-amber-200/50 shadow-[0_0_35px_rgba(251,191,36,0.7)]`;
-        case 2048: return `${base} bg-white text-black border-white shadow-[0_0_40px_rgba(255,255,255,0.8)] animate-pulse`;
+        case 2: return `${base} bg-cyan-900/20 text-cyan-200 border-cyan-500/20 shadow-[0_0_10px_rgba(34,211,238,0.1)]`;
+        case 4: return `${base} bg-cyan-800/40 text-cyan-100 border-cyan-500/40 shadow-[0_0_15px_rgba(34,211,238,0.2)]`;
+        case 8: return `${base} bg-blue-600/50 text-white border-blue-400/50 shadow-[0_0_15px_rgba(59,130,246,0.3)]`;
+        case 16: return `${base} bg-indigo-600/60 text-white border-indigo-400/50 shadow-[0_0_20px_rgba(99,102,241,0.4)]`;
+        case 32: return `${base} bg-violet-600/70 text-white border-violet-400/60 shadow-[0_0_20px_rgba(139,92,246,0.5)]`;
+        case 64: return `${base} bg-fuchsia-600/70 text-white border-fuchsia-400/60 shadow-[0_0_25px_rgba(217,70,239,0.5)]`;
+        case 128: return `${base} bg-rose-600/70 text-white border-rose-400/60 shadow-[0_0_25px_rgba(244,63,94,0.5)]`;
+        case 256: return `${base} bg-red-600/80 text-white border-red-400/60 shadow-[0_0_30px_rgba(239,68,68,0.6)]`;
+        case 512: return `${base} bg-orange-500/80 text-white border-orange-300/60 shadow-[0_0_35px_rgba(249,115,22,0.7)]`;
+        case 1024: return `${base} bg-amber-400/90 text-black border-amber-200/60 shadow-[0_0_40px_rgba(251,191,36,0.8)]`;
+        case 2048: return `${base} bg-white text-black border-white shadow-[0_0_50px_rgba(255,255,255,0.9)] animate-pulse`;
         default: return `${base} bg-black text-white border-white`;
     }
   };

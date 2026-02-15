@@ -3,9 +3,10 @@ import SnakeGame from './components/SnakeGame';
 import SpaceShooterGame from './components/SpaceShooterGame';
 import PingPongGame from './components/PingPongGame';
 import NumberPuzzleGame from './components/NumberPuzzleGame';
+import TowerGame from './components/TowerGame';
 import { MainMenu } from './components/MainMenu';
 
-type GameMode = 'menu' | 'snake' | 'space' | 'pong' | 'numberpuzzle';
+type GameMode = 'menu' | 'snake' | 'space' | 'pong' | 'numberpuzzle' | 'tower';
 
 const App: React.FC = () => {
   const [currentMode, setCurrentMode] = useState<GameMode>('menu');
@@ -34,6 +35,10 @@ const App: React.FC = () => {
 
       {currentMode === 'numberpuzzle' && (
         <NumberPuzzleGame onBack={() => setCurrentMode('menu')} />
+      )}
+
+      {currentMode === 'tower' && (
+        <TowerGame onBack={() => setCurrentMode('menu')} />
       )}
     </div>
   );
